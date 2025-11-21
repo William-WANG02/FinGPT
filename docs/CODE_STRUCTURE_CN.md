@@ -871,7 +871,7 @@ model = get_peft_model(base_model, peft_config)
 # 3. 打印可训练参数
 model.print_trainable_parameters()
 # 输出示例（实际数值取决于模型和配置）: 
-# trainable params: 4M || all params: 6.7B || trainable%: 0.06%
+# trainable params: 4M || all params: 6.7B || trainable: 0.06%
 ```
 
 ### 模式3: Instruction格式化

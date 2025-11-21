@@ -319,9 +319,10 @@ import torch
 # 配置
 # 推荐做法：使用环境变量存储API key
 import os
-FINNHUB_API_KEY = os.getenv("FINNHUB_API_KEY")  # 从环境变量读取
-# 或者临时测试时：FINNHUB_API_KEY = "your_api_key_here"
-# 警告：不要将真实的API key提交到代码仓库！
+FINNHUB_API_KEY = os.getenv("FINNHUB_API_KEY")
+if not FINNHUB_API_KEY:
+    raise ValueError("请设置环境变量 FINNHUB_API_KEY")
+# 设置环境变量方法: export FINNHUB_API_KEY="your_key_here"
 
 TICKER = "AAPL"
 WEEKS_BACK = 2
