@@ -304,6 +304,8 @@ from peft import PeftModel
 import torch
 
 # 配置
+# 警告：不要将真实的API key提交到代码仓库！使用环境变量或配置文件
+# 示例：FINNHUB_API_KEY = os.getenv("FINNHUB_API_KEY")
 FINNHUB_API_KEY = "your_api_key_here"  # 替换为你的API key
 TICKER = "AAPL"
 WEEKS_BACK = 2

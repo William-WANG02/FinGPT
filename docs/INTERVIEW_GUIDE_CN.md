@@ -272,12 +272,12 @@
 > from fastapi import FastAPI
 > app = FastAPI()
 > 
-> @app.post(\"/predict\")
+> @app.post("/predict")
 > async def predict(text: str):
->     inputs = tokenizer(text, return_tensors=\"pt\")
+>     inputs = tokenizer(text, return_tensors="pt")
 >     outputs = model.generate(**inputs)
 >     result = tokenizer.decode(outputs[0])
->     return {\"prediction\": result}
+>     return {"prediction": result}
 > ```
 >
 > **5. 生产部署**
