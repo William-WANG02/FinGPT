@@ -1,5 +1,13 @@
 # FinGPT 实践指南
 
+**⚠️ 重要提醒**: 
+- 本文档仅供学习和研究使用
+- 文档中的预测和分析示例不构成投资建议
+- 实际投资决策应基于全面研究和专业咨询
+- 妥善保管API密钥等敏感信息，切勿提交到公开仓库
+
+---
+
 ## 📋 目录
 1. [环境配置](#环境配置)
 2. [快速开始](#快速开始)
@@ -291,6 +299,11 @@ pip install yfinance finnhub-python
 
 访问 [Finnhub](https://finnhub.io/) 注册并获取免费API key。
 
+**⚠️ 安全提醒**: 
+- 永远不要将API密钥硬编码到代码中并提交到版本控制系统
+- 使用环境变量或配置文件存储敏感信息
+- 在生产环境使用密钥管理服务（如AWS Secrets Manager）
+
 #### 步骤3: 创建预测脚本
 
 创建文件 `forecaster_demo.py`:
@@ -434,6 +447,9 @@ suggest continued momentum. However, the gains may be moderate due
 to profit-taking after recent rally and broader market uncertainty.
 The positive sentiment from new products should provide support.
 ```
+
+**⚠️ 免责声明**: 
+此预测仅为演示目的，不构成投资建议。实际投资决策应基于全面的研究和专业咨询。过往表现不代表未来结果。
 
 ---
 
@@ -969,8 +985,10 @@ import finnhub
 import pandas as pd
 from datetime import datetime, timedelta
 
-# 初始化API
-finnhub_client = finnhub.Client(api_key="your_api_key")
+# 初始化API（使用环境变量）
+import os
+finnhub_client = finnhub.Client(api_key=os.getenv("FINNHUB_API_KEY"))
+# 警告：不要硬编码API密钥！
 
 # 收集多只股票的数据
 tickers = ["AAPL", "GOOGL", "MSFT", "TSLA", "AMZN"]
